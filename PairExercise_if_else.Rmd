@@ -43,6 +43,23 @@ cat("Z is ",z)
 ```
 
 ## *Action Required:  alter my code so that Y and Z are not altered*
+```{R}
+y=0
+z=0
+x=5
+
+if(FALSE)
+{
+  y=0.125*x
+  z=x^2
+}
+#cat is a print function I am using here, the \n is a linefeed character
+# to advance to the next line in the printing
+
+cat("Y is ",y ,"\n")
+cat("Z is ",z)
+```
+
 
 #If-else
 
@@ -76,6 +93,47 @@ cat("Z is ",z)
 
 Verify that this code works for a couple of different values of x
 
+```{R}
+y=0
+z=0
+x=11
+
+if(x<10)
+{
+  y=0.125*x
+  z=x^2
+}else
+{
+  y=0.25*x
+  z=x^(0.5)
+}
+#cat is a print function I am using here, the \n is a linefeed character
+# to advance to the next line in the printing
+
+cat("Y is ",y ,"\n")
+cat("Z is ",z, "\n")
+
+y=0
+z=0
+x=-5
+
+if(x<10)
+{
+  y=0.125*x
+  z=x^2
+}else
+{
+  y=0.25*x
+  z=x^(0.5)
+}
+#cat is a print function I am using here, the \n is a linefeed character
+# to advance to the next line in the printing
+
+cat("Y is ",y ,"\n")
+cat("Z is ",z, "\n")
+
+```
+
 Note
 
 Each if statement can only have one else
@@ -100,6 +158,23 @@ if(x<0)
 ```
 
 Alter this code and verify that it works
+```{R}
+x=57
+if(x<0)
+{
+  cat("Negative X value\n")
+}else {
+  if(x%%2==0)
+  {
+    cat("X is even\n")
+  }
+  else
+  {
+    cat("X is odd\n")
+  }
+}
+```
+
 
 # Compound test conditions
 
@@ -127,6 +202,12 @@ scones_in_stock=TRUE
 
 # write your code here
 
+if(people_in_line <= 2 
+   | (people_in_line <= 4 & scones_in_stock)){
+  cat("I'm stopping at starbucks")
+}else{
+  cat("I'm not stopping at starbucks")
+}
 
 ```
 
@@ -146,6 +227,11 @@ y
 ```
 
 ## *Action: Verify that this behaves as expected when x is changed*
+```{R}
+x=11
+y=ifelse(x<10,0.125*x,0.25*x)
+y
+```
 
 This is not a structure I use much, it does save some time.   I tend to use
 the less sophisticated approach shown above.

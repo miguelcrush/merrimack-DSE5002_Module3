@@ -75,7 +75,14 @@ x2power(3,2)
 
 Write your self a function that takes in three variables, a, b, and c
 and returns (a+b)/c
+```{r}
+fn_a_plus_b_div_c <- function(a,b,c){
+  return ((a+b)/c)
+}
 
+fn_a_plus_b_div_c(2,3,2)
+
+```
 
 ## Default values
 
@@ -149,7 +156,16 @@ Add some basic error trapping to the function you wrote.
 
 Make sure c is not zero
 
-```{R}
+```{r}
+fn_a_plus_b_div_c <- function(a,b,c){
+  if(c == 0){
+    cat("Cannot divide by zero\n")
+    return(NULL)
+  }
+  return ((a+b)/c)
+}
+
+fn_a_plus_b_div_c(2,3,4)
 
 ```
 
