@@ -1,0 +1,462 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Week 3 Exercises},
+  pdfauthor={HD Sheets},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Week 3 Exercises}
+\author{HD Sheets}
+\date{10/1/2024}
+
+\begin{document}
+\maketitle
+
+Please complete all exercises below. You may use any library that we
+have covered in class UP TO THIS POINT.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(stringr)}
+\end{Highlighting}
+\end{Shaded}
+
+For each function, show that it works, by using the provided data as a
+test and by feeding in some test data that you create to test your
+function
+
+Add comments to your function to explain what each line is doing
+
+1.) Write a function that takes in a string with a person's name in the
+form
+
+``Sheets, Dave''
+
+and returns a string of the form
+
+``Dave Sheets''
+
+Note:
+
+-assume no middle initial ever -remove the comma -be sure there is white
+space between the first and last name
+
+You will probably want to use stringr
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{name\_in}\OtherTok{=}\StringTok{"Sheets, Dave"}
+
+\NormalTok{reorder\_name}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(last\_first)\{}
+  \DocumentationTok{\#\# split the name string by the comma}
+\NormalTok{  parts }\OtherTok{\textless{}{-}} \FunctionTok{str\_split}\NormalTok{(name\_in, }\StringTok{","}\NormalTok{)}
+  \DocumentationTok{\#\# sapply (tapply except for vectors) str\_trim against the split string and reverse}
+\NormalTok{  res }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(parts, str\_trim)}
+  \DocumentationTok{\#\# concatenate the results}
+  \FunctionTok{return}\NormalTok{(}\FunctionTok{cat}\NormalTok{(res[}\DecValTok{2}\NormalTok{], }\StringTok{\textquotesingle{} \textquotesingle{}}\NormalTok{, res[}\DecValTok{1}\NormalTok{], }\AttributeTok{sep=}\StringTok{\textquotesingle{}\textquotesingle{}}\NormalTok{))}
+\NormalTok{\}}
+
+\FunctionTok{reorder\_name}\NormalTok{(name\_in)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Dave Sheets
+\end{verbatim}
+
+2.) Write a function that takes in a string of values x, and returns a
+data frame with three columns, x, x\^{}2 and the square root of x
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{11}\NormalTok{,}\DecValTok{13}\NormalTok{)}
+
+\NormalTok{powers\_df}\OtherTok{\textless{}{-}}\ControlFlowTok{function}\NormalTok{(x)}
+\NormalTok{\{}
+  \DocumentationTok{\#\# create a data frame consisting of the requested columns and their calculations}
+\NormalTok{  df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{x =}\NormalTok{ x, }\AttributeTok{xsq=}\NormalTok{x}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{, }\AttributeTok{xsqr=}\NormalTok{x}\SpecialCharTok{\^{}}\FloatTok{0.5}\NormalTok{)}
+  \FunctionTok{return}\NormalTok{(df)}
+\NormalTok{\}}
+
+\CommentTok{\#your code here}
+\FunctionTok{powers\_df}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    x xsq     xsqr
+## 1  1   1 1.000000
+## 2  3   9 1.732051
+## 3  5  25 2.236068
+## 4  7  49 2.645751
+## 5  9  81 3.000000
+## 6 11 121 3.316625
+## 7 13 169 3.605551
+\end{verbatim}
+
+3.) Write in a function that takes in a value x and returns
+
+\begin{verbatim}
+y= 0.3x if x<0
+y=0.5x if x>=0
+
+This is a variant on a relu function as used in some neural networks.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_3 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+  \DocumentationTok{\#\# if x \textless{} 0 then return the specified string}
+  \ControlFlowTok{if}\NormalTok{(x}\SpecialCharTok{\textless{}}\DecValTok{0}\NormalTok{)\{}
+    \FunctionTok{return}\NormalTok{(}\StringTok{"y= 0.3x"}\NormalTok{)}
+\NormalTok{  \}}
+  \DocumentationTok{\#\# otherwise, return the other specified string}
+  \ControlFlowTok{else}\NormalTok{\{}
+    \FunctionTok{return}\NormalTok{(}\StringTok{"y=0.5x"}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\FunctionTok{func\_3}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "y=0.5x"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# OR}
+\NormalTok{func\_3 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+  \DocumentationTok{\#\# if x \textless{} 0 then return x * 0.3}
+  \ControlFlowTok{if}\NormalTok{(x}\SpecialCharTok{\textless{}}\DecValTok{0}\NormalTok{)\{}
+    \FunctionTok{return}\NormalTok{(}\FloatTok{0.3} \SpecialCharTok{*}\NormalTok{ x)}
+\NormalTok{  \}}
+  \DocumentationTok{\#\# otherwise return x * 0.5}
+  \ControlFlowTok{else}\NormalTok{\{}
+    \FunctionTok{return}\NormalTok{(}\FloatTok{0.5} \SpecialCharTok{*}\NormalTok{ x)}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\FunctionTok{func\_3}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5
+\end{verbatim}
+
+4.) Write a function that takes in a value x and returns the first power
+of two greater than x (use a While loop)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{func\_4 }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+  \DocumentationTok{\#\# declare a var to track the current power}
+\NormalTok{  power}\OtherTok{\textless{}{-}} \DecValTok{0}
+  \DocumentationTok{\#\# keep incrementing the power var until 2\^{}power \textgreater{} x}
+  \ControlFlowTok{while}\NormalTok{(}\DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{power }\SpecialCharTok{\textless{}}\NormalTok{ x)\{}
+\NormalTok{    power }\OtherTok{\textless{}{-}}\NormalTok{ power}\SpecialCharTok{+}\DecValTok{1}
+\NormalTok{  \}}
+  
+  \FunctionTok{return}\NormalTok{(}\DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{power)}
+\NormalTok{\}}
+
+\FunctionTok{func\_4}\NormalTok{(}\DecValTok{1050}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2048
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Two Sum - Write a function named two\_sum()
+\end{enumerate}
+
+Given a vector of integers nums and an integer target, return indices of
+the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you
+may not use the same element twice.
+
+You can return the answer in any order.
+
+Example 1:
+
+Input: nums = {[}2,7,11,15{]}, target = 9 Output: {[}0,1{]} Explanation:
+Because nums{[}0{]} + nums{[}1{]} == 9, we return {[}0, 1{]}. Example 2:
+
+Input: nums = {[}3,2,4{]}, target = 6 Output: {[}1,2{]} Example 3:
+
+Input: nums = {[}3,3{]}, target = 6 Output: {[}0,1{]}
+
+Constraints:
+
+2 \textless= nums.length \textless= 104 --109 \textless= nums{[}i{]}
+\textless= 109 --109 \textless= target \textless= 109 Only one valid
+answer exists.
+
+\emph{Note: For the first problem I want you to use a brute force
+approach (loop inside a loop)}
+
+\emph{The brute force approach is simple. Loop through each element x
+and find if there is another value that equals to target -- x}
+
+\emph{Use the function seq\_along to iterate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{two\_sum }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(nums\_vector,target)\{}
+  \DocumentationTok{\#\# iterate over nums\_vector}
+  \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(nums\_vector))\{}
+\NormalTok{    ei }\OtherTok{\textless{}{-}}\NormalTok{ nums\_vector[i]}
+    \DocumentationTok{\#\# iterate over nums\_vector again}
+    \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in} \FunctionTok{seq\_along}\NormalTok{(nums\_vector))\{}
+      \DocumentationTok{\#\# and you may not use the same element twice.}
+      \ControlFlowTok{if}\NormalTok{(i}\SpecialCharTok{==}\NormalTok{ j)\{}
+        \ControlFlowTok{next} \DocumentationTok{\#\# similar to \textasciigrave{}continue\textasciigrave{} in other langs}
+\NormalTok{      \}}
+\NormalTok{      ej }\OtherTok{\textless{}{-}}\NormalTok{ nums\_vector[j]}
+      \DocumentationTok{\#\# if the numbers at each index add up to target, return the indecies}
+      \ControlFlowTok{if}\NormalTok{(ej }\SpecialCharTok{+}\NormalTok{ ei }\SpecialCharTok{==}\NormalTok{ target)\{}
+        \FunctionTok{return}\NormalTok{(}\FunctionTok{c}\NormalTok{(i, j))}
+\NormalTok{      \}}
+\NormalTok{    \}}
+\NormalTok{  \}}
+ 
+\NormalTok{\}}
+
+
+\CommentTok{\# Test code}
+\NormalTok{nums\_vector }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{34}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{)}
+\NormalTok{target }\OtherTok{\textless{}{-}} \DecValTok{13}
+ 
+\NormalTok{z}\OtherTok{=}\FunctionTok{two\_sum}\NormalTok{(nums\_vector,target)}
+\FunctionTok{print}\NormalTok{(z)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#expected answers}
+\CommentTok{\#[1] 1 7}
+\CommentTok{\#[1] 2 5}
+\CommentTok{\#[1] 5 2}
+\end{Highlighting}
+\end{Shaded}
+
+6.) Write one piece of code that will use a regex command to extract a
+phone number written in the form
+
+\begin{verbatim}
+  456-123-2329
+  
+\end{verbatim}
+
+The sentences to use are located below
+
+use the str\_extract function from stringr
+
+use the same regex search pattern from each
+
+-What does \textbackslash d match to? or alternatively
+{[}{[}:digit:{]}{]}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Both are equivalent to the expression [0{-}9]}
+\end{Highlighting}
+\end{Shaded}
+
+-How do you specify a specific number of repeated characters
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# x\{n\}, where x is a character n is the number of repeated x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a}\OtherTok{=}\StringTok{"Please call me at 456{-}123{-}2329, asap"}
+\NormalTok{b}\OtherTok{=}\StringTok{"Hey, we have a code 234 on machine a{-}234{-}12, call me at 678{-}321{-}98766"}
+\NormalTok{c}\OtherTok{=}\StringTok{"On 12{-}23{-}2022, Joe over at 122 Turnpike, dialled 912{-}835{-}4756, tell me by 9:02 pm Wed"}
+
+\NormalTok{phone\_regex\_pattern }\OtherTok{\textless{}{-}} \StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{3\}{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{3\}{-}}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{d\{4\}"}
+\FunctionTok{str\_extract}\NormalTok{(a, phone\_regex\_pattern)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "456-123-2329"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_extract}\NormalTok{(b, phone\_regex\_pattern)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "678-321-9876"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_extract}\NormalTok{(c, phone\_regex\_pattern)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "912-835-4756"
+\end{verbatim}
+
+7.) For lines below, extract the domains (ie the part of the address
+after @)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d}\OtherTok{=}\StringTok{"jimmy.halibut@gmail.com"}
+\NormalTok{e}\OtherTok{=}\StringTok{"His address is:  c.brown@hopeles.org, do write him"}
+\NormalTok{f}\OtherTok{=}\StringTok{"h.potter@hogwarts.edu is bouncing back on me, I wonder why?"}
+
+\NormalTok{email\_domain\_regex }\OtherTok{=} \StringTok{"@(}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{w+}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{.}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{w+)}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{W?"}
+\FunctionTok{str\_extract}\NormalTok{(d, email\_domain\_regex, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "gmail.com"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_extract}\NormalTok{(e, email\_domain\_regex, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "hopeles.org"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str\_extract}\NormalTok{(f, email\_domain\_regex, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "hogwarts.edu"
+\end{verbatim}
+
+\end{document}
